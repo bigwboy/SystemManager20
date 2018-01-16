@@ -19,7 +19,7 @@ class ComputerRoomTable(models.Model):
         verbose_name_plural = '机房信息'
         #ordering = ['']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.ComputerRoomName
 
 #服务器信息表
@@ -42,7 +42,7 @@ class ServerMachineTable(models.Model):
         verbose_name_plural = '服务器信息'
         #ordering = ['']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.pub_date
 
 
@@ -60,7 +60,7 @@ class NetworkMachineTable(models.Model):
         verbose_name_plural = '网络设备信息'
         #ordering = ['']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.NetworkMachineName
 
 #机柜信息表
@@ -77,7 +77,7 @@ class CabinetTable(models.Model):
         verbose_name_plural = '机柜信息'
         #ordering = ['']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.CabinetName
 
 #设备厂商表
@@ -92,5 +92,5 @@ class EquipmentManufacturersTable(models.Model):
         verbose_name_plural = '设备厂商'
         # ordering = ['']
 
-    def __unicode__(self):
+    def __str__(self):
         return self.ManufacturersName
