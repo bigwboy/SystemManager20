@@ -1,12 +1,11 @@
 #coding=utf-8
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
 from django.shortcuts import render,render_to_response
 from django import forms
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import UploadFileTable
-from django.core.urlresolvers import reverse
+#from django.core.urlresolvers import reverse
 from .script.ReadExecl import ReadExeclFile
 from .script.WriteToDB import WriteDataToDB
 class UploadFileForm(forms.Form):
@@ -27,17 +26,17 @@ def UploadFile(request):
             WriteDBCLASS.FileName = upfilename
             WriteDBCLASS.save()
             #文件解析内容写入对应表
-            print '文件上传成功'
+            print ('文件上传成功')
             ReadData = ReadExeclFile(WriteDBCLASS.FileName.name,uptablename)
             WriteDBData = ReadData[0]
             ReadErrorData = ReadData[1]
             if WriteDBData:
-                print '文件解析成功'
+                print ('文件解析成功')
                 returnWritedata=WriteDataToDB(WriteDBData,uptablename)
                 return render_to_response('WriteDBover.html',{'ReadErrorData':ReadErrorData,'returnrepeatedata':returnWritedata[0],'returnWriteErrorData':returnWritedata[1]})
             else:
-                print WriteDBData
-                print '文件解析失败'
+                print (WriteDBData)
+                print ('文件解析失败')
                 return render(request,'WriteError.html')
 
     else:

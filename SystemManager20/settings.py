@@ -26,7 +26,7 @@ SECRET_KEY = 'mau@&mldbele2(fmkrz2wl!r4g988!=6f94(_q5^z&*n^_k=+r'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django_select2',
     'xadmin',
     'crispy_forms',
+    'rest_framework',
+
     'ComputerRoomManagerment',
     'IPaddrmanagement',
     'Personnelmanagement',
@@ -58,6 +60,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+
+
+
 
 ROOT_URLCONF = 'SystemManager20.urls'
 
@@ -128,5 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/xadmin')
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)

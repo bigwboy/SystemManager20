@@ -10,7 +10,7 @@ from .models import CabinetTable,ComputerRoomTable,NetworkMachineTable,ServerMac
 
 #机房管理显示
 class ComputerRoomTableXAdmin(object):
-    list_display = ()
+    list_display = ('ComputerRoomName','ComputerRoomAddress','ComputerRoomPhone',)
     search_fields = ()
     list_filter = ()
     # 不显示书签

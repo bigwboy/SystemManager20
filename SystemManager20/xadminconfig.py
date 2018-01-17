@@ -3,7 +3,7 @@ import xadmin.views
 #全局设置
 class GlobalSetting(object):
     # 设置base_site.html的Title
-    site_title = '系统管理平台'
+    site_title = '系统管理平台1.1'
     # 设置base_site.html的Footer
     site_footer  = '浙江华通云科技有限公司' +\
                    '\n'+'        -----系统运维部'
