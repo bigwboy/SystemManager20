@@ -25,7 +25,7 @@ SECRET_KEY = 'mau@&mldbele2(fmkrz2wl!r4g988!=6f94(_q5^z&*n^_k=+r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
@@ -96,12 +96,24 @@ WSGI_APPLICATION = 'SystemManager20.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+'''
+
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'systemmanagerdb2',
+         'USER': 'scheduling_user',
+         'PASSWORD': 'cdn@hzhs',
+         'HOST': '113.215.20.11',
+         'PORT': '3306',
+     }
 }
 
 
