@@ -2,8 +2,7 @@
 import xlrd
 import sys
 from Resourcesmanagement.models import CDNTable,ApplicationDomainTable,RegionTable,ApplicationTable,restype,CoverTable
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
 from django import db
 #文件读取
 def ReadExeclFile(file,tablename):
@@ -27,8 +26,8 @@ def ReadExeclFile(file,tablename):
                 cdn_id = CDNTable.objects.get(CDN=rowValues[0])
                 rowValues[0] = cdn_id
                 row_list.append(rowValues)
-            except Exception, e:
-                print e
+            except Exception as e:
+                print (e)
                 # 查找核对错误，[单条记录，错误信息]
                 error = rowValues + e
                 NOTfind.append(error)
@@ -43,8 +42,8 @@ def ReadExeclFile(file,tablename):
             # 查询应用
             try:
                 app_id = ApplicationTable.objects.get(app=rowValues[1])
-            except Exception, e:
-                print e
+            except Exception as e:
+                print (e)
                 errormsg.append(rowValues[1])
                 errormsg.append('应用查找错误')
                 # 查找核对错误，[单条记录，错误信息]
@@ -53,8 +52,8 @@ def ReadExeclFile(file,tablename):
             # 查询cdn
             try:
                 cdn_id = CDNTable.objects.get(CDN=rowValues[2])
-            except Exception,e:
-                print e
+            except Exception as e:
+                print (e)
                 errormsg.append(rowValues[2])
                 errormsg.append('cdn查找错误')
                 # 查找核对错误，[单条记录，错误信息]
@@ -63,8 +62,8 @@ def ReadExeclFile(file,tablename):
             # 查询域
             try:
                 region_id = RegionTable.objects.get(region=rowValues[3])
-            except Exception, e:
-                print e
+            except Exception as  e:
+                print (e)
                 errormsg.append(rowValues[3])
                 errormsg.append('域查找错误')
                 # 查找核对错误，[单条记录，错误信息]
@@ -73,8 +72,8 @@ def ReadExeclFile(file,tablename):
             # 查询域名类型
             try:
                 res_id = restype.objects.get(restype=rowValues[4])
-            except Exception, e:
-                print e
+            except Exception as e:
+                print (e)
                 errormsg.append(rowValues[4])
                 errormsg.append('类型查找错误')
                 # 查找核对错误，[单条记录，错误信息]
@@ -84,8 +83,8 @@ def ReadExeclFile(file,tablename):
             # 查询覆盖情况
             try:
                 cover_id = CoverTable.objects.get(cover=rowValues[5])
-            except Exception, e:
-                print e
+            except Exception as (e):
+                print (e)
                 errormsg.append(rowValues[5])
                 errormsg.append('覆盖情况查找错误')
                     # 查找核对错误，[单条记录，错误信息]
