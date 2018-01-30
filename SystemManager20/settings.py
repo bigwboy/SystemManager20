@@ -105,16 +105,7 @@ DATABASES = {
 }
 '''
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'systemmanagerdb2',
-         'USER': 'scheduling_user',
-         'PASSWORD': 'cdn@hzhs',
-         'HOST': '113.215.20.11',
-         'PORT': '3306',
-     }
-}
+
 
 
 # Password validation
